@@ -8,20 +8,19 @@ public class Destino implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String nombreLugar;
-    private int diasPermanencia; // mínimo 1
+    private int diasPermanencia;
     private LinkedList<String> atractivos;
     private boolean atractivosIncluidos;
 
-    // Constructor
     public Destino(String nombreLugar, int diasPermanencia,
             LinkedList<String> atractivos, boolean atractivosIncluidos) {
-        this.nombreLugar = nombreLugar;
-        this.diasPermanencia = (diasPermanencia >= 1) ? diasPermanencia : 1;
-        this.atractivos = (atractivos != null) ? atractivos : new LinkedList<>();
+
+        setNombreLugar(nombreLugar);
+        setDiasPermanencia(diasPermanencia);
+        setAtractivos(atractivos);
         this.atractivosIncluidos = atractivosIncluidos;
     }
 
-    // Getters
     public String getNombreLugar() {
         return nombreLugar;
     }
@@ -38,19 +37,24 @@ public class Destino implements Serializable {
         return atractivosIncluidos;
     }
 
-    // Setters
     public void setNombreLugar(String nombreLugar) {
-        this.nombreLugar = nombreLugar;
-    }
-
-    public void setDiasPermanencia(int diasPermanencia) {
-        if (diasPermanencia >= 1) {
-            this.diasPermanencia = diasPermanencia;
+        if (nombreLugar == null || nombreLugar.trim().isEmpty()) {
+            this.nombreLugar = "Destino sin nombre";
+        } else {
+            this.nombreLugar = nombreLugar.trim();
         }
     }
 
+    public void setDiasPermanencia(int diasPermanencia) {
+        this.diasPermanencia = Math.max(1, diasPermanencia);
+    }
+
     public void setAtractivos(LinkedList<String> atractivos) {
-        this.atractivos = atractivos;
+        if (atractivos == null) {
+            this.atractivos = new LinkedList<>();
+        } else {
+            this.atractivos = atractivos;
+        }
     }
 
     public void setAtractivosIncluidos(boolean atractivosIncluidos) {
@@ -60,12 +64,17 @@ public class Destino implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("  Lugar       : ").append(nombreLugar).append("\n");
-        sb.append("  Días        : ").append(diasPermanencia).append("\n");
-        sb.append("  Atractivos  : ").append(atractivosIncluidos ? "Incluidos" : "Opcionales").append("\n");
-        if (!atractivos.isEmpty()) {
-            sb.append("  Lista       : ").append(String.join(", ", atractivos)).append("\n");
+        sb.append("Lugar: ").append(nombreLugar).append("\n");
+        sb.append("Dias permanencia: ").append(diasPermanencia).append("\n");
+        sb.append("Atractivos: ").append(atractivosIncluidos ? "Incluidos" : "Opcionales").append("\n");
+        sb.append("Lista atractivos: ");
+
+        if (atractivos.isEmpty()) {
+            sb.append("Sin atractivos registrados\n");
+        } else {
+            sb.append(String.join(", ", atractivos)).append("\n");
         }
+
         return sb.toString();
     }
 }
