@@ -58,6 +58,7 @@ public class PaqueteTuristicoUnicoIT {
         String resultadoObtenido = elPaquete.getNombreHotel();
         System.out.println("Resultado esperado: " + resultadoEsperado);
         System.out.println("Resultado obtenido: " + resultadoObtenido);
+        assertEquals(resultadoEsperado, resultadoObtenido); 
     }
 
     /**
