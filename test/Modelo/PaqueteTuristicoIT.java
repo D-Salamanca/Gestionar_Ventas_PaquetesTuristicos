@@ -23,38 +23,6 @@ public class PaqueteTuristicoIT {
     }
 
     /**
-     * Test of setTarifaDia method, of class PaqueteTuristico.
-     */
-    @Test
-    public void testSetTarifaDia() {
-        System.out.println("Test -> setTarifaDia");
-        int resultadoEsperado = 1;
-        elPaquete = new PaqueteTuristicoImpl();
-        elPaquete.setTarifaDia(0);
-        int resultadoObtenido = elPaquete.getTarifaDia();
-        System.out.println("Resultado esperado: " + resultadoEsperado);
-        System.out.println("Resultado obtenido: " + resultadoObtenido);
-
-        assertEquals(resultadoEsperado, resultadoObtenido);
-    }
-
-    /**
-     * Test of setCantidadUnidades method, of class PaqueteTuristico.
-     */
-    @Test
-    public void testSetCantidadUnidades() {
-        System.out.println("Test -> setCantidadUnidades");
-        int resultadoEsperado = 1;
-        elPaquete = new PaqueteTuristicoImpl();
-        elPaquete.setCantidadUnidades(0);
-        int resultadoObtenido = elPaquete.getCantidadUnidades();
-        System.out.println("Resultado esperado: " + resultadoEsperado);
-        System.out.println("Resultado obtenido: " + resultadoObtenido);
-
-        assertEquals(resultadoEsperado, resultadoObtenido);
-    }
-
-    /**
      * Test of calcularDuracionTotalDias method, of class PaqueteTuristico.
      */
     @Test

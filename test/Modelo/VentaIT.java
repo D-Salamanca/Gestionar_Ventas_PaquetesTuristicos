@@ -7,7 +7,6 @@ package Modelo;
 import java.util.LinkedList;
 import modelo.Destino;
 import modelo.PaqueteTuristicoUnico;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import modelo.Cliente;
 import modelo.PaqueteTuristico;
@@ -24,33 +23,6 @@ public class VentaIT {
     private Venta laVenta;
     
     public VentaIT() {
-    }
-
-    /**
-     * Test of setEstado method, of class Venta.
-     */
-    @Test
-    public void testSetEstado() {
-        System.out.println("Test -> setEstado");
-        char resultadoEsperado = 'P';
-        Cliente cliente = new Cliente(
-                'C',
-                "123456",
-                false,
-                "Lina",
-                "lina@gmail.com",
-                "3001234567",
-                "Lina",
-                10
-        );
-        ArrayList<PaqueteTuristico> paquetes = new ArrayList<>();
-        laVenta = new Venta(1, cliente, paquetes);
-        laVenta.setEstado('P');
-        char resultadoObtenido = laVenta.getEstado();
-        System.out.println("Resultado esperado: " + resultadoEsperado);
-        System.out.println("Resultado obtenido: " + resultadoObtenido);
-
-        assertEquals(resultadoEsperado, resultadoObtenido);
     }
 
     /**

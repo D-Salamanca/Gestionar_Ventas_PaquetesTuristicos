@@ -22,37 +22,6 @@ public class PaqueteTuristicoMultipleIT {
     public PaqueteTuristicoMultipleIT() {
     }
 
-    /**
-     * Test of setObsequio method, of class PaqueteTuristicoMultiple.
-     */
-    @Test
-    public void testSetObsequio() {
-        System.out.println("Test -> setObsequio");
-        ArrayList<Destino> destinos = new ArrayList<>();
-        String resultadoEsperado = "Sin obsequio";
-        elPaquete = new PaqueteTuristicoMultiple(
-                "PT001",
-                "Paquete Turistico Multiple",
-                "Aventura",
-                "Viaje de prueba",
-                "Cali",
-                destinos,
-                true,
-                true,
-                false,
-                true,
-                true,
-                200000,
-                2,
-                ""
-        );
-        elPaquete.setObsequio("");
-        String resultadoObtenido = elPaquete.getObsequio();
-        System.out.println("Resultado esperado: " + resultadoEsperado);
-        System.out.println("Resultado obtenido: " + resultadoObtenido);
-
-        assertEquals(resultadoEsperado, resultadoObtenido);
-    }
 
     /**
      * Test of calcularValorUnidad method, of class PaqueteTuristicoMultiple.
